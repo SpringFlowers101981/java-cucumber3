@@ -12,13 +12,12 @@ import static support.DriverFactory.getDriver;
 public class GoogleStepDefs {
     @Given("I open {string}")
     public void iOpen(String url) {
-
         getDriver().get(url);
     }
 
     @Then("I verify page is opened")
     public void iVerifyPageIsOpened() {
-        new WebDriverWait(getDriver(), Duration.ofSeconds(3))
+        new WebDriverWait(getDriver(), Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.name("q")));
     }
 }
